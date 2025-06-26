@@ -9,6 +9,7 @@
      <meta name="description" content="Web-based planning app for task scheduling, team collaboration, and project management." />
      <meta name="author" content="{{ config('app.name') }}" />
      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+     <meta name="csrf-token" content="{{ csrf_token() }}">
 
      <!-- App favicon -->
      <link rel="shortcut icon" href="{{ asset('app') }}/assets/images/sims2.png">

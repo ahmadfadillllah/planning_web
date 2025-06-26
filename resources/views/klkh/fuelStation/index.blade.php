@@ -97,9 +97,9 @@
                         </tbody>
                     </table>
                 </div>
-                <span class="badge bg-success">T</span> : Telah diverifikasi
+                {{-- <span class="badge bg-success">T</span> : Telah diverifikasi
                 <br>
-                <span class="badge bg-danger">B</span> : Belum diverifikasi
+                <span class="badge bg-danger">B</span> : Belum diverifikasi --}}
             </div>
         </div>
 

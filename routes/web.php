@@ -38,6 +38,7 @@ Route::group(['middleware' => ['auth']], function(){
 
     Route::get('/kkh', [KKHController::class, 'index'])->name('kkh.index');
     Route::get('/kkh/api', [KKHController::class, 'all_api'])->name('kkh.all_api');
+    Route::get('/kkh/downloadPDF', [KKHController::class, 'downloadPDF'])->name('kkh.downloadPDF');
     Route::post('/kkh/verifikasi', [KKHController::class, 'verifikasi'])->name('kkh.verifikasi');
 
     //Users

@@ -23,11 +23,11 @@
 
                     <div class="col-12">
                         <div class="mb-3 row">
-                            <div class="col-6 col-md-3 mb-2">
+                            <div class="col-6 col-md-2 mb-2">
                                 <label for="tanggalKKH">Tanggal</label>
                                 <input type="text" id="tanggalKKH" class="form-control" name="tanggalKKH">
                             </div>
-                            <div class="col-6 col-md-3 mb-2">
+                            <div class="col-6 col-md-1 mb-2">
                                 <label for="shift">Shift</label>
                                 <select class="form-select" name="shift" id="shift">
                                     <option value="Semua">Semua</option>
@@ -35,8 +35,18 @@
                                     <option value="Malam">Malam</option>
                                 </select>
                             </div>
-                            <div class="col-12 col-md-2 mb-2 d-flex align-items-end">
-                                <button id="cariKKH" class="btn btn-primary w-100" style="padding-top:10px;padding-bottom:10px;">Tampilkan</button>
+                            <div class="col-6 col-md-3 mb-2">
+                                <label for="shift">Nama</label>
+                                <select class="form-control" data-choices name="name" id="choices-single-default">
+                                    <option value="Semua">Semua</option>
+                                    @foreach ($user as $us)
+                                        <option value="{{ $us->nik }}">{{ $us->name }} ({{ $us->nik }})</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-3 mb-2 d-flex align-items-end">
+                                <button id="cariKKH" class="btn btn-primary w-100 me-2" style="padding-top:10px;padding-bottom:10px;">Tampilkan</button>
+                                <button id="downloadpdfKKH" class="btn btn-secondary w-100" style="padding-top:10px;padding-bottom:10px;">Download PDF</button>
                             </div>
                         </div>
                     </div>
@@ -73,14 +83,9 @@
                                         <th>Nama</th>
                                     </tr>
                         </thead>
-                        <tbody id="tableBody">
-                                    <!-- Data dari API akan ditambahkan di sini -->
-                                </tbody>
+                        <tbody id="tableBody"></tbody>
                     </table>
                 </div>
-                <span class="badge bg-success">T</span> : Telah diverifikasi
-                <br>
-                <span class="badge bg-danger">B</span> : Belum diverifikasi
             </div>
         </div>
 
@@ -108,13 +113,13 @@
             rangeInput.placeholder = formatted;
         }
     });
-    // [ HTML5 Export Buttons ]
+
     $('#basic-btn').DataTable({
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'print']
     });
 
-    // [ Column Selectors ]
+
     $('#cbtn-selectors').DataTable({
         dom: 'Bfrtip',
         buttons: [{
@@ -144,7 +149,7 @@
         ]
     });
 
-    // [ Excel - Cell Background ]
+
     $('#excel-bg').DataTable({
         dom: 'Bfrtip',
         buttons: [{
@@ -160,7 +165,7 @@
         }]
     });
 
-    // [ Custom File (JSON) ]
+
     $('#pdf-json').DataTable({
         dom: 'Bfrtip',
         buttons: [{
@@ -174,6 +179,39 @@
 
 </script>
 <script>
+
+    $('#downloadpdfKKH').click(function () {
+        var tanggalKKH = $('#tanggalKKH').val();
+        var name = $('#choices-single-default').val();
+        var shift = $('#shift').val();
+
+        if (name == 'Semua') {
+            Swal.fire({
+                title: 'Upps!',
+                text: 'Silakan isi nama pengisi KKH terlebih dahulu!',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
+
+        const queryParams = $.param({
+            tanggalKKH: tanggalKKH,
+            name: name,
+            shift: shift
+        });
+
+        const downloadUrl = "{{ route('kkh.downloadPDF') }}?" + queryParams;
+
+        const a = document.createElement('a');
+        a.href = downloadUrl;
+        a.target = '_self';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    });
+
+
     var table;
     $(document).ready(function() {
         var userRole = "{{ Auth::user()->role }}";
@@ -181,16 +219,15 @@
 
 
             processing: true,
-            serverSide: true,  // Untuk menggunakan server-side processing
+            serverSide: true,
             ajax: {
-                url: '{{ route('kkh.all_api') }}',  // URL API Anda
-                method: 'GET',  // Gunakan GET atau POST sesuai dengan implementasi Anda
+                url: '{{ route('kkh.all_api') }}',
+                method: 'GET',
                 data: function(d) {
-                    // Kirimkan parameter tambahan jika diperlukan (misalnya tanggal)
                     var tanggalKKH = $('#tanggalKKH').val();
                     d.tanggalKKH = tanggalKKH;
-                    // var cluster = $('#cluster').val();
-                    // d.cluster = cluster;
+                    var name = $('#choices-single-default').val();
+                    d.name = name;
                     var shift = $('#shift').val();
                     d.shift = shift;
                     delete d.columns;
@@ -211,7 +248,6 @@
                     render: function(data, type, row) {
                         if (data === null || data === '') return '-';
 
-                        // Cek nilai data, pastikan jadi angka dulu
                         var nilai = parseFloat(data);
                         var teks = data + ' Jam';
 
@@ -225,10 +261,6 @@
                 {
                     data: 'FIT_BEKERJA',
                     render: function(data, type, row) {
-                        // if (data === null || data === '') return '-';
-
-                        // Cek nilai data, pastikan jadi angka dulu
-                        // var nilai = parseInt(data);
 
                         if (data == 0 || data === null || data === '') {
                             return '<span style="color:red;">TIDAK</span>';
@@ -311,17 +343,18 @@
                 }
 
             ],
-            "order": [[0, "asc"]],  // Default sort by first column
-            "pageLength": 25,  // Jumlah baris per halaman
-            "lengthMenu": [10, 15, 25, 50],  // Pilihan jumlah baris per halaman
+            "order": [[0, "asc"]],
+            "pageLength": 25,
+            "lengthMenu": [10, 15, 25, 50],
         });
 
-        // Event listener untuk tombol refresh
         $('#cariKKH').click(function() {
-            table.ajax.reload();  // Reload data dengan AJAX
+            table.ajax.reload();
         });
+
         table.ajax.reload();
     });
+
 
 
     $(document).on('click', '.btn-verifikasi', function (e) {

@@ -20,7 +20,7 @@ class KLKHFuelStationController extends Controller
     //
     public function index(Request $request)
     {
-        session(['requestTimeLoadingPoint' => $request->all()]);
+        session(['requestTimeFuelStation' => $request->all()]);
 
         $tanggalInput = $request->input('rangeDate');
 
