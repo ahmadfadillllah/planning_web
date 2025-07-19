@@ -6,7 +6,7 @@
                     document.write(new Date().getFullYear())
 
                 </script> &copy; {{ config('app.name') }}. Copyright by <a href="http://ahmadfadillah.my.id"
-                    class="fw-bold footer-text" target="_blank">IT-FMS</a>
+                    class="fw-bold footer-text" target="_blank">IT-FMS Support</a>
             </div>
         </div>
     </div>

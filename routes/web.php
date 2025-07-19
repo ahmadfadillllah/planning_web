@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KKHController;
 use App\Http\Controllers\KLKHFuelStationController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\VerifiedController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,7 +16,7 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login/post', [AuthController::class, 'loginPost'])->name('login.post');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/verified/index', [KLKHFuelStationController::class, 'index'])->name('verified.index');
+Route::get('/verified/{encodedNik}', [VerifiedController::class, 'index'])->name('verified.index');
 
 //Middleware
 Route::group(['middleware' => ['auth']], function(){

@@ -365,7 +365,7 @@
                                         </a>
                                     @endif
 
-                                    @if (Auth::user()->nik == $fuelStation->DIKETAHUI && $fuelStation->VERIFIED_Diketahui == null)
+                                    @if (Auth::user()->nik == $fuelStation->DIKETAHUI && $fuelStation->VERIFIED_DIKETAHUI == null)
                                         <a href="#" data-bs-toggle="modal" data-bs-target="#verifiedDiketahui{{ $fuelStation->UUID }}">
                                             <span class="badge bg-success" style="font-size:14px">Verifikasi Diketahui</span>
                                         </a>
