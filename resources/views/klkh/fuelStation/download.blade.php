@@ -97,7 +97,7 @@
             <td class="center">{!! $fuelStation->PERMUKAAN_TANAH_RATA_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->PERMUKAAN_TANAH_RATA_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->PERMUKAAN_TANAH_RATA_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->PERMUKAAN_TANAH_RATA_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->PERMUKAAN_TANAH_RATA_NOTE !!}</td>
         </tr>
         <tr>
             <td>2</td>
@@ -105,7 +105,7 @@
             <td class="center">{!! $fuelStation->PERMUKAAN_TANAH_LICIN_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->PERMUKAAN_TANAH_LICIN_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->PERMUKAAN_TANAH_LICIN_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->PERMUKAAN_TANAH_LICIN_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->PERMUKAAN_TANAH_LICIN_NOTE !!}</td>
         </tr>
         <tr>
             <td>3</td>
@@ -113,7 +113,7 @@
             <td class="center">{!! $fuelStation->LOKASI_JAUH_LINTASAN_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->LOKASI_JAUH_LINTASAN_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->LOKASI_JAUH_LINTASAN_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->LOKASI_JAUH_LINTASAN_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->LOKASI_JAUH_LINTASAN_NOTE !!}</td>
         </tr>
         <tr>
             <td>4</td>
@@ -121,7 +121,7 @@
             <td class="center">{!! $fuelStation->TIDAK_CECERAN_B3_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->TIDAK_CECERAN_B3_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->TIDAK_CECERAN_B3_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->TIDAK_CECERAN_B3_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->TIDAK_CECERAN_B3_NOTE !!}</td>
         </tr>
         <tr>
             <td>5</td>
@@ -129,7 +129,7 @@
             <td class="center">{!! $fuelStation->PARKIR_FUELTRUCK_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->PARKIR_FUELTRUCK_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->PARKIR_FUELTRUCK_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->PARKIR_FUELTRUCK_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->PARKIR_FUELTRUCK_NOTE !!}</td>
         </tr>
         <tr>
             <td>6</td>
@@ -137,7 +137,7 @@
             <td class="center">{!! $fuelStation->PARKIR_LV_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->PARKIR_LV_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->PARKIR_LV_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->PARKIR_LV_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->PARKIR_LV_NOTE !!}</td>
         </tr>
         <tr>
             <td>7</td>
@@ -145,7 +145,7 @@
             <td class="center">{!! $fuelStation->LAMPU_KERJA_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->LAMPU_KERJA_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->LAMPU_KERJA_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->LAMPU_KERJA_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->LAMPU_KERJA_NOTE !!}</td>
         </tr>
         <tr>
             <td>8</td>
@@ -153,7 +153,7 @@
             <td class="center">{!! $fuelStation->FUEL_GENSET_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->FUEL_GENSET_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->FUEL_GENSET_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->FUEL_GENSET_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->FUEL_GENSET_NOTE !!}</td>
         </tr>
         <tr>
             <td>9</td>
@@ -161,7 +161,7 @@
             <td class="center">{!! $fuelStation->AIR_BERSIH_TANDON_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->AIR_BERSIH_TANDON_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->AIR_BERSIH_TANDON_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->AIR_BERSIH_TANDON_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->AIR_BERSIH_TANDON_NOTE !!}</td>
         </tr>
         <tr>
             <th style="text-align: left;background:#d4d4d4" colspan="10">Perlengkapan Kerja</th>
@@ -172,7 +172,7 @@
             <td class="center">{!! $fuelStation->SOP_JSA_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->SOP_JSA_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->SOP_JSA_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->SOP_JSA_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->SOP_JSA_NOTE !!}</td>
         </tr>
         <tr>
             <td>2</td>
@@ -180,7 +180,7 @@
             <td class="center">{!! $fuelStation->SAFETY_POST_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->SAFETY_POST_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->SAFETY_POST_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->SAFETY_POST_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->SAFETY_POST_NOTE !!}</td>
         </tr>
         <tr>
             <td>3</td>
@@ -188,7 +188,7 @@
             <td class="center">{!! $fuelStation->RAMBU_APD_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->RAMBU_APD_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->RAMBU_APD_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->RAMBU_APD_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->RAMBU_APD_NOTE !!}</td>
         </tr>
         <tr>
             <td>4</td>
@@ -196,7 +196,7 @@
             <td class="center">{!! $fuelStation->PERLENGKAPAN_KERJA_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->PERLENGKAPAN_KERJA_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->PERLENGKAPAN_KERJA_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->PERLENGKAPAN_KERJA_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->PERLENGKAPAN_KERJA_NOTE !!}</td>
         </tr>
         <tr>
             <td>5</td>
@@ -204,7 +204,7 @@
             <td class="center">{!! $fuelStation->APAB_APAR_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->APAB_APAR_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->APAB_APAR_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->APAB_APAR_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->APAB_APAR_NOTE !!}</td>
         </tr>
         <tr>
             <td>6</td>
@@ -212,7 +212,7 @@
             <td class="center">{!! $fuelStation->P3K_EYEWASH_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->P3K_EYEWASH_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->P3K_EYEWASH_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->P3K_EYEWASH_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->P3K_EYEWASH_NOTE !!}</td>
         </tr>
         <tr>
             <td>7</td>
@@ -220,7 +220,7 @@
             <td class="center">{!! $fuelStation->INSPEKSI_APAR_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->INSPEKSI_APAR_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->INSPEKSI_APAR_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->INSPEKSI_APAR_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->INSPEKSI_APAR_NOTE !!}</td>
         </tr>
         <tr>
             <td>8</td>
@@ -228,7 +228,7 @@
             <td class="center">{!! $fuelStation->FORM_CHECKLIST_REFUELING_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->FORM_CHECKLIST_REFUELING_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->FORM_CHECKLIST_REFUELING_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->FORM_CHECKLIST_REFUELING_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->FORM_CHECKLIST_REFUELING_NOTE !!}</td>
         </tr>
         <tr>
             <td>9</td>
@@ -236,7 +236,7 @@
             <td class="center">{!! $fuelStation->TEMPAT_SAMPAH_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->TEMPAT_SAMPAH_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->TEMPAT_SAMPAH_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->TEMPAT_SAMPAH_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->TEMPAT_SAMPAH_NOTE !!}</td>
         </tr>
         <tr>
             <th style="text-align: left;background:#d4d4d4" colspan="10">Kegiatan Refueling Unit A2B</th>
@@ -247,7 +247,7 @@
             <td class="center">{!! $fuelStation->MINEPERMIT_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->MINEPERMIT_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->MINEPERMIT_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->MINEPERMIT_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->MINEPERMIT_NOTE !!}</td>
         </tr>
         <tr>
             <td>2</td>
@@ -255,7 +255,7 @@
             <td class="center">{!! $fuelStation->SIMPER_OPERATOR_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->SIMPER_OPERATOR_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->SIMPER_OPERATOR_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->SIMPER_OPERATOR_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->SIMPER_OPERATOR_NOTE !!}</td>
         </tr>
         <tr>
             <td>3</td>
@@ -263,7 +263,7 @@
             <td class="center">{!! $fuelStation->PADLOCK_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->PADLOCK_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->PADLOCK_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->PADLOCK_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->PADLOCK_NOTE !!}</td>
         </tr>
         <tr>
             <td>4</td>
@@ -271,7 +271,7 @@
             <td class="center">{!! $fuelStation->WADAH_PENAMPUNG_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->WADAH_PENAMPUNG_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->WADAH_PENAMPUNG_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->WADAH_PENAMPUNG_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->WADAH_PENAMPUNG_NOTE !!}</td>
         </tr>
         <tr>
             <td>5</td>
@@ -279,7 +279,7 @@
             <td class="center">{!! $fuelStation->WHEEL_CHOCK_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->WHEEL_CHOCK_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->WHEEL_CHOCK_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->WHEEL_CHOCK_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->WHEEL_CHOCK_NOTE !!}</td>
         </tr>
         <tr>
             <td>6</td>
@@ -287,7 +287,7 @@
             <td class="center">{!! $fuelStation->RADIO_KOMUNIKASI_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->RADIO_KOMUNIKASI_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->RADIO_KOMUNIKASI_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->RADIO_KOMUNIKASI_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->RADIO_KOMUNIKASI_NOTE !!}</td>
         </tr>
         <tr>
             <td>7</td>
@@ -295,7 +295,7 @@
             <td class="center">{!! $fuelStation->APD_STANDAR_CHECK == 'true' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->APD_STANDAR_CHECK == 'false' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
             <td class="center">{!! $fuelStation->APD_STANDAR_CHECK == 'n/a' ? '<img src="' . public_path('check.png') . '">' : '' !!}</td>
-            <td colspan="3">{!! $fuelStation->APD_STANDAR_NOTE !!}</td>
+            <td colspan="3" class="left">{!! $fuelStation->APD_STANDAR_NOTE !!}</td>
         </tr>
 
     </table>
