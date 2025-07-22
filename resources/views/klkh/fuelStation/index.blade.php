@@ -83,7 +83,13 @@
                                 <td>{{ date('d-m-Y', strtotime($item->DATE)) }}
                                     {{ date('H:i', strtotime($item->TIME)) }}</td>
                                 <td>{{ $item->NIK_DIKETAHUI }}</td>
-                                <td>{{ $item->NAMA_DIKETAHUI }}</td>
+                                <td>{{ $item->NAMA_DIKETAHUI }}
+                                    @if ($item->VERIFIED_DIKETAHUI != null)
+                                        <span class="badge bg-success">T</span>
+                                    @else
+                                        <span class="badge bg-danger">B</span>
+                                    @endif
+                                </td>
                                 <td>
                                     <a href="{{ route('klkh.fuelStation.preview', $item->UUID) }}"
                                         class="btn btn-sm btn-info"><i class="bx bx-show"></i></a>
@@ -97,9 +103,9 @@
                         </tbody>
                     </table>
                 </div>
-                {{-- <span class="badge bg-success">T</span> : Telah diverifikasi
+                <span class="badge bg-success">T</span> : Telah diverifikasi
                 <br>
-                <span class="badge bg-danger">B</span> : Belum diverifikasi --}}
+                <span class="badge bg-danger">B</span> : Belum diverifikasi
             </div>
         </div>
 
