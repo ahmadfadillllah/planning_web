@@ -78,6 +78,7 @@
                     <span class="nav-text">KKH</span>
                 </a>
             </li>
+            @if (Auth::user()->role == 'ADMIN')
             <li class="menu-title">Configuration</li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('users.index') }}">
@@ -87,6 +88,15 @@
                     <span class="nav-text">User</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('mappingVerifier.index') }}">
+                    <span class="nav-icon">
+                        <i class="bx bx-child fs-2"></i>
+                    </span>
+                    <span class="nav-text">Mapping Verifier</span>
+                </a>
+            </li>
+            @endif
 
 
         </ul>

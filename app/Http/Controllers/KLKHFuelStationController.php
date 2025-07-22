@@ -75,10 +75,12 @@ class KLKHFuelStationController extends Controller
         //     $fuelStation->orWhere('fs.PIC', Auth::user()->nik);
         // }
 
-        // $fuelStation = $fuelStation->where(function($query) {
-        //     $query->where('fs.PENGAWAS', Auth::user()->nik)
-        //           ->orWhere('fs.DIKETAHUI', Auth::user()->nik);
-        // });
+        if (Auth::user()->role !== 'ADMIN') {
+            $fuelStation = $fuelStation->where(function ($query) {
+                $query->where('fs.PENGAWAS', Auth::user()->nik)
+                    ->orWhere('fs.DIKETAHUI', Auth::user()->nik);
+            });
+        }
 
         $fuelStation = $fuelStation->get();
 
@@ -89,8 +91,17 @@ class KLKHFuelStationController extends Controller
     {
         $pit = Area::where('statusenabled', true)->get();
         $shift = Shift::where('statusenabled', true)->get();
-        // $$supervisor = User::where('statusenabled', true)->get();
-        $diketahui = User::where('statusenabled', true)->whereIn('role', ['Superintendent', 'Pjs. Superintendent', 'Supervisor'])->get();
+
+        $diketahui = DB::table('CONF_MAPPING_VERIFIER as mf')
+        ->leftJoin('users as us', 'mf.USER_ID', 'us.id')
+        ->select(
+            'mf.STATUSENABLED',
+            'mf.id as ID',
+            'us.nik as nik',
+            'us.name',
+            'us.role'
+        )->where('mf.STATUSENABLED', true)->get();
+
 
         $users = [
             // 'supervisor' => $supervisor,

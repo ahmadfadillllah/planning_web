@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KKHController;
 use App\Http\Controllers\KLKHFuelStationController;
+use App\Http\Controllers\MappingVerifierController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\VerifiedController;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,11 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/users', [UsersController::class, 'index'])->name('users.index');
     Route::post('/users/changeRole/{id}', [UsersController::class, 'changeRole'])->name('users.changeRole');
     Route::get('/users/statusEnabled/{id}', [UsersController::class, 'statusEnabled'])->name('users.statusEnabled');
+
+    Route::get('/mappingVerifier', [MappingVerifierController::class, 'index'])->name('mappingVerifier.index');
+    Route::post('/mappingVerifier/insert', [MappingVerifierController::class, 'insert'])->name('mappingVerifier.insert');
+    Route::post('/mappingVerifier/update/{id}', [MappingVerifierController::class, 'update'])->name('mappingVerifier.update');
+    Route::get('/mappingVerifier/statusEnabled/{id}', [MappingVerifierController::class, 'statusEnabled'])->name('mappingVerifier.statusEnabled');
 
 
 
