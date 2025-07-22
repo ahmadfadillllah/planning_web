@@ -185,7 +185,7 @@
         labels: {
             show: !1,
             formatter: function (e) {
-                return e + "%"
+                return e
             }
         }
     },
