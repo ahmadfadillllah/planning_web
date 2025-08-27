@@ -1,4 +1,4 @@
-@include('layout.head')
+@include('layout.head', ['title' => 'List KLKH Fuel Station'])
 @include('layout.header')
 @include('layout.theme_settings')
 @include('layout.sidebar')
@@ -92,9 +92,19 @@
                                 </td>
                                 <td>
                                     <a href="{{ route('klkh.fuelStation.preview', $item->UUID) }}"
-                                        class="btn btn-sm btn-info"><i class="bx bx-show"></i></a>
-                                    <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#deleteKLKH{{ $item->ID }}"><i class="bx bx-trash"></i></a>
+                                        class="btn btn-sm btn-info"><i class="bx bx-show"></i>
+                                    </a>
+                                    @if (Auth::user()->nik == $item->NIK_PIC)
+                                        <a href="{{ route('klkh.fuelStation.edit', $item->UUID) }}" class="btn btn-sm btn-warning"><i class="bx bx-edit"></i>
+                                        </a>
+                                    @endif
+                                    @if (in_array(Auth::user()->role, ['STAFF', 'PJS. SUPERINTENDENT', 'SUPERINTENDENT']))
+                                        <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#deleteKLKH{{ $item->ID }}"><i class="bx bx-trash"></i>
+                                        </a>
+                                    @endif
+
+
                                 </td>
                             </tr>
                             @include('klkh.fuelStation.modal.delete')

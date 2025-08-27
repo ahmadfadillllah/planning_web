@@ -24,7 +24,18 @@
 
      <!-- Theme Config js (Require in all Page) -->
      <script src="{{ asset('app') }}/assets/js/config.min.js"></script>
-
+    <style>
+        .auth-card {
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 
 <body class="authentication-bg">

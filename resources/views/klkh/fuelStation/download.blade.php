@@ -322,6 +322,18 @@
             <td class="noborder">{!! $fuelStation->NAMA_PENGAWAS !!}</td>
             <td class="noborder nobg" style="text-align: center">{!! $fuelStation->NAMA_DIKETAHUI !!}</td>
         </tr>
+        <tr style="font-size:8pt;">
+            <td class="noborder nobg">
+                {!! $fuelStation->CATATAN_VERIFIED_PENGAWAS != null
+                    ? '<img src="' . public_path("app/assets/images/note.png") . '" alt="" style="width:16px;">: ' . $fuelStation->CATATAN_VERIFIED_PENGAWAS
+                    : '' !!}
+            </td>
+            <td class="noborder nobg" style="text-align: center">
+                {!! $fuelStation->CATATAN_VERIFIED_DIKETAHUI != null
+                    ? '<img src="' . public_path("app/assets/images/note.png") . '" alt="" style="width:16px;">: ' . $fuelStation->CATATAN_VERIFIED_DIKETAHUI
+                    : '' !!}
+            </td>
+        </tr>
     </table>
 </body>
 </html>

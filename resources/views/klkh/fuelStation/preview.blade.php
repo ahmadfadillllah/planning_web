@@ -1,4 +1,4 @@
-@include('layout.head')
+@include('layout.head', ['title' => 'Preview KLKH Fuel Station'])
 @include('layout.header')
 @include('layout.theme_settings')
 @include('layout.sidebar')
@@ -315,13 +315,13 @@
                                     @endif
 
                                     <h5>{{ $fuelStation->NAMA_PENGAWAS ?? '.......................' }}</h5>
-{{--
+
                                     @if ($fuelStation->CATATAN_VERIFIED_PENGAWAS)
                                         <p>
-                                            <img src="{{ asset('dashboard/assets/images/widget/writing.png') }}" alt="">
+                                            <img src="{{ asset('app/assets/images/note.png') }}" alt="">
                                             : {{ $fuelStation->CATATAN_VERIFIED_PENGAWAS }}
                                         </p>
-                                    @endif --}}
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-sm-4"></div>
@@ -337,12 +337,12 @@
 
                                     <h5>{{ $fuelStation->NAMA_DIKETAHUI ?? '.......................' }}</h5>
 
-                                    {{-- @if ($fuelStation->CATATAN_VERIFIED_DIKETAHUI)
+                                    @if ($fuelStation->CATATAN_VERIFIED_DIKETAHUI)
                                         <p>
-                                            <img src="{{ asset('dashboard/assets/images/widget/writing.png') }}" alt="">
+                                            <img src="{{ asset('app/assets/images/note.png') }}" alt="">
                                             : {{ $fuelStation->CATATAN_VERIFIED_DIKETAHUI }}
                                         </p>
-                                    @endif --}}
+                                    @endif
                                 </div>
                             </div>
                             <div class="card-body p-3">

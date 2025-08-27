@@ -1,4 +1,4 @@
-@include('layout.head')
+@include('layout.head', ['title' => 'List KKH'])
 @include('layout.header')
 @include('layout.theme_settings')
 @include('layout.sidebar')

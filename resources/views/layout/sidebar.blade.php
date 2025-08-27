@@ -1,7 +1,7 @@
 <div class="main-nav">
     <!-- Sidebar Logo -->
     <div class="logo-box">
-        <a href="index.html" class="logo-light">
+        <a href="#" class="logo-light">
             <img src="{{ asset('app') }}/assets/images/sims3.png" class="img-fluid" width="100px" alt="logo">
             <span class="badge bg-info">{{ config('app.name') }}</span>
         </a>

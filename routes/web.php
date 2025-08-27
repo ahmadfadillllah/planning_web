@@ -28,9 +28,11 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/klkh/fuelStation', [KLKHFuelStationController::class, 'index'])->name('klkh.fuelStation.index');
     Route::get('/klkh/fuelStation/insert', [KLKHFuelStationController::class, 'insert'])->name('klkh.fuelStation.insert');
     Route::post('/klkh/fuelStation/post', [KLKHFuelStationController::class, 'post'])->name('klkh.fuelStation.post');
-    Route::get('/klkh/fuelStation/verified/all/{UUID}', [KLKHFuelStationController::class, 'verifiedAll'])->name('klkh.fuelStation.verifiedAll');
-    Route::get('/klkh/fuelStation/verified/pengawas/{UUID}', [KLKHFuelStationController::class, 'verifiedPengawas'])->name('klkh.fuelStation.verifiedPengawas');
-    Route::get('/klkh/fuelStation/verified/diketahui/{UUID}', [KLKHFuelStationController::class, 'verifiedDiketahui'])->name('klkh.fuelStation.verifiedDiketahui');
+    Route::post('/klkh/fuelStation/verified/all/{UUID}', [KLKHFuelStationController::class, 'verifiedAll'])->name('klkh.fuelStation.verifiedAll');
+    Route::post('/klkh/fuelStation/verified/pengawas/{UUID}', [KLKHFuelStationController::class, 'verifiedPengawas'])->name('klkh.fuelStation.verifiedPengawas');
+    Route::post('/klkh/fuelStation/verified/diketahui/{UUID}', [KLKHFuelStationController::class, 'verifiedDiketahui'])->name('klkh.fuelStation.verifiedDiketahui');
+    Route::get('/klkh/fuelStation/edit/{UUID}', [KLKHFuelStationController::class, 'edit'])->name('klkh.fuelStation.edit');
+    Route::post('/klkh/fuelStation/update/{UUID}', [KLKHFuelStationController::class, 'update'])->name('klkh.fuelStation.update');
     Route::get('/klkh/fuelStation/preview/{UUID}', [KLKHFuelStationController::class, 'preview'])->name('klkh.fuelStation.preview');
     Route::get('/klkh/fuelStation/cetak/{UUID}', [KLKHFuelStationController::class, 'cetak'])->name('klkh.fuelStation.cetak');
     Route::get('/klkh/fuelStation/download/{UUID}', [KLKHFuelStationController::class, 'download'])->name('klkh.fuelStation.download');

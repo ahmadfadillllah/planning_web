@@ -1,15 +1,23 @@
-<div class="modal fade" id="verifiedPengawas{{ $fuelStation->UUID }}" aria-hidden="true" aria-labelledby="..." tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
+<div class="modal fade" id="verifiedPengawas{{ $fuelStation->UUID }}" tabindex="-1" aria-labelledby="modalSupportLabel" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-body text-center p-5">
-                <i class="bx bx-error-circle text-success shake-ikon" style="font-size: 100px;"></i>
-                <div class="mt-4 pt-4">
-                    <h4>Verifikasi KLKH?</h4>
-                    <p class="text-muted"> Lakukan verifikasi KLKH ini...</p>
-                    <!-- Toogle to second dialog -->
-                    <a href="{{ route('klkh.fuelStation.verifiedPengawas', $fuelStation->UUID) }}" type="button"  class="btn btn-danger">Verifikasi</a>
-                </div>
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalSupportLabel">Catatan Verifikasi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <form action="{{ route('klkh.fuelStation.verifiedPengawas', $fuelStation->UUID) }}" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label>Masukkan Catatan</label>
+                        <textarea type="text" class="form-control" name="catatan_verified_pengawas"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Verifikasi</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

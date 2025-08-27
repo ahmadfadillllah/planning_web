@@ -1,4 +1,4 @@
-@include('layout.head')
+@include('layout.head', ['title' => 'Temuan KLKH Fuel Station'])
 @include('layout.header')
 @include('layout.theme_settings')
 @include('layout.sidebar')

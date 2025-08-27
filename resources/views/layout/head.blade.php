@@ -4,7 +4,7 @@
 <head>
      <!-- Title Meta -->
      <meta charset="utf-8" />
-     <title>Home | {{ config('app.name') }}</title>
+     <title>{{ $title }} | {{ config('app.name') }}</title>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta name="description" content="Web-based planning app for task scheduling, team collaboration, and project management." />
      <meta name="author" content="{{ config('app.name') }}" />
