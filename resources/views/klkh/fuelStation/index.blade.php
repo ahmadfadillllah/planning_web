@@ -98,9 +98,13 @@
                                         <a href="{{ route('klkh.fuelStation.edit', $item->UUID) }}" class="btn btn-sm btn-warning"><i class="bx bx-edit"></i>
                                         </a>
                                     @endif
-                                    @if (in_array(Auth::user()->role, ['STAFF', 'PJS. SUPERINTENDENT', 'SUPERINTENDENT']))
+                                    @if(
+                                        in_array(Auth::user()->role, ['STAFF', 'PJS. SUPERINTENDENT', 'SUPERINTENDENT']) ||
+                                        ($item->NIK_PIC == Auth::user()->nik && $item->VERIFIED_DIKETAHUI == null)
+                                    )
                                         <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#deleteKLKH{{ $item->ID }}"><i class="bx bx-trash"></i>
+                                            data-bs-target="#deleteKLKH{{ $item->ID }}">
+                                            <i class="bx bx-trash"></i>
                                         </a>
                                     @endif
 
