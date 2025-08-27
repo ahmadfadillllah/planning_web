@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use App\Models\Area;
 use App\Models\KLKHFuelStation;
 use App\Models\Shift;
@@ -185,6 +186,15 @@ class KLKHFuelStationController extends Controller
 
 
             KLKHFuelStation::create($dataToInsert);
+
+            Activity::create([
+                'STATUSENABLED' => true,
+                'TANGGAL' => Carbon::now(),
+                'JENIS' => 'KLKH',
+                'NAMA' => Auth::user()->name,
+                'NIK' => Auth::user()->nik,
+                'KETERANGAN' => 'Telah menambahkan KLKH Fuel Station',
+            ]);
 
             return redirect()->route('klkh.fuelStation.index')->with('success', 'KLKH Fuel Station berhasil dibuat');
 
@@ -604,6 +614,15 @@ class KLKHFuelStationController extends Controller
                 'UPDATED_BY' => Auth::user()->id,
             ]);
 
+            Activity::create([
+                'STATUSENABLED' => true,
+                'TANGGAL' => Carbon::now(),
+                'JENIS' => 'KLKH',
+                'NAMA' => Auth::user()->name,
+                'NIK' => Auth::user()->nik,
+                'KETERANGAN' => 'Telah memverifikasi KLKH Fuel Station',
+            ]);
+
             return redirect()->back()->with('success', 'KLKH Fuel Station berhasil diverifikasi');
 
         } catch (\Throwable $th) {
@@ -614,6 +633,15 @@ class KLKHFuelStationController extends Controller
     public function delete($id)
     {
         try {
+            Activity::create([
+                'STATUSENABLED' => true,
+                'TANGGAL' => Carbon::now(),
+                'JENIS' => 'KLKH',
+                'NAMA' => Auth::user()->name,
+                'NIK' => Auth::user()->nik,
+                'KETERANGAN' => 'Telah menghapus KLKH Fuel Station',
+            ]);
+
             KLKHFuelStation::where('ID', $id)->update([
                 'STATUSENABLED' => false,
                 'DELETED_BY' => Auth::user()->nik,
