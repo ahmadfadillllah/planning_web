@@ -200,7 +200,7 @@ class KLKHFuelStationController extends Controller
             $userNotif = User::where('nik', $data['diketahui'])->first();
             $deviceToken = $userNotif->fcm_token;
             $title = Auth::user()->name;
-            $body  = 'KLKH telah berhasil dibuat, mohon untuk diperiksa...';
+            $body  = 'KLKH telah berhasil dibuat, mohon untuk diperiksa!';
 
             $firebase->sendNotification($deviceToken, $title, $body);
 
@@ -635,7 +635,7 @@ class KLKHFuelStationController extends Controller
             $userDiketahui = User::where('nik', $klkh->DIKETAHUI)->first();
             $deviceToken = $userPengawas->fcm_token;
             $title = Auth::user()->name;
-            $body  = 'KLKH anda telah berhasil diverikasi, mohon untuk diperiksa...';
+            $body  = 'KLKH anda telah berhasil diverikasi, mohon untuk diperiksa!';
 
             $firebase->sendNotification($deviceToken, $title, $body);
 
