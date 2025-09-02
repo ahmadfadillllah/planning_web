@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\File;
 use Ramsey\Uuid\Uuid;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Services\FirebaseService;
 
 class KLKHFuelStationController extends Controller
 {
@@ -106,7 +107,7 @@ class KLKHFuelStationController extends Controller
         return view('klkh.fuelStation.insert', compact('users'));
     }
 
-    public function post(Request $request)
+    public function post(Request $request, FirebaseService $firebase)
     {
         // dd($request->all());
         try {
@@ -195,6 +196,13 @@ class KLKHFuelStationController extends Controller
                 'NIK' => Auth::user()->nik,
                 'KETERANGAN' => 'Telah menambahkan KLKH Fuel Station',
             ]);
+
+            $userNotif = User::where('nik', $data['diketahui'])->first();
+            $deviceToken = $userNotif->fcm_token;
+            $title = Auth::user()->name;
+            $body  = 'KLKH telah berhasil dibuat, mohon untuk diperiksa...';
+
+            $firebase->sendNotification($deviceToken, $title, $body);
 
             return redirect()->route('klkh.fuelStation.index')->with('success', 'KLKH Fuel Station berhasil dibuat');
 
@@ -602,7 +610,7 @@ class KLKHFuelStationController extends Controller
         }
     }
 
-    public function verifiedDiketahui(Request $request, $uuid)
+    public function verifiedDiketahui(Request $request, $uuid, FirebaseService $firebase)
     {
         $klkh =  KLKHFuelStation::where('UUID', $uuid)->first();
 
@@ -622,6 +630,14 @@ class KLKHFuelStationController extends Controller
                 'NIK' => Auth::user()->nik,
                 'KETERANGAN' => 'Telah memverifikasi KLKH Fuel Station',
             ]);
+
+            $userPengawas = User::where('nik', $klkh->PENGAWAS)->first();
+            $userDiketahui = User::where('nik', $klkh->DIKETAHUI)->first();
+            $deviceToken = $userPengawas->fcm_token;
+            $title = Auth::user()->name;
+            $body  = 'KLKH anda telah berhasil diverikasi, mohon untuk diperiksa...';
+
+            $firebase->sendNotification($deviceToken, $title, $body);
 
             return redirect()->back()->with('success', 'KLKH Fuel Station berhasil diverifikasi');
 
