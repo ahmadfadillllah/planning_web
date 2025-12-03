@@ -135,7 +135,6 @@ class KKHController extends Controller
 
         }
 
-        // return $endDate;
 
         $shift = $request->shift;
         if ($shift == 'Pagi') {
@@ -154,8 +153,7 @@ class KKHController extends Controller
 
 
 
-        $cluster = $request->cluster; // contoh: "A1"
-        // $allAssignments = AssignmentOperator::select('NIK', 'CLASS')->get();
+        $cluster = $request->cluster;
 
 
         $filteredRecords = $kkh->count();

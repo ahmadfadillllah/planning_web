@@ -1,4 +1,4 @@
-@include('layout.head')
+@include('layout.head', ['title' => 'Setting Users'])
 @include('layout.header')
 @include('layout.theme_settings')
 @include('layout.sidebar')
@@ -47,9 +47,9 @@
                                 <td>{{ $us->name }}</td>
                                 <td>
                                     @if ($us->statusenabled == true)
-                                    <span class="badge bg-success">Aktif</span>
+                                    <span class="text-success">Aktif</span>
                                     @else
-                                    <span class="badge bg-danger">Non Aktif</span>
+                                    <span class="text-danger">Non Aktif</span>
                                     @endif
                                 </td>
                                 <td>{{ $us->role }}</td>

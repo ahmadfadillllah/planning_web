@@ -6,11 +6,11 @@
 :root {
     --bs-logo-lg-height: 30px;
     --bs-logo-sm-height: 28px;
-    --bs-main-nav-width: 260px;
+    --bs-main-nav-width: 240px;
     --bs-main-nav-width-sm: 75px;
     --bs-main-nav-item-icon-size: 18px;
     --bs-main-nav-item-font-size: 15px;
-    --bs-main-nav-item-padding-x: 15px;
+    --bs-main-nav-item-padding-x: 7px;
     --bs-main-nav-item-padding-y: 10px;
     --bs-main-nav-item-margin-y: 2px;
     --bs-topbar-height: 70px;
@@ -17246,8 +17246,8 @@ header {
     margin-left: var(--bs-main-nav-width);
     margin-right: 10px;
     border-bottom: 0 solid var(--bs-border-color);
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
     -webkit-box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .05);
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .05)
 }
@@ -17377,7 +17377,7 @@ html[data-menu-size=hidden] .topbar {
     .container-sm,
     .container-xl,
     .container-xxl {
-        max-width: 96%
+        max-width: 99%
     }
 }
 
@@ -17557,7 +17557,7 @@ html[data-menu-size=hidden] .topbar {
     -ms-flex-align: center;
     align-items: center;
     position: relative;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
     color: var(--bs-main-nav-item-color);

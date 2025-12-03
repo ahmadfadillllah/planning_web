@@ -21,7 +21,7 @@
                 <h4 class="fw-semibold mb-0">Mapping Verifier</h4>
             </div>
             <div class="col-auto">
-                <button id="cariKKH" class="btn btn-primary" style="padding-top:10px;padding-bottom:10px;" data-bs-toggle="modal" data-bs-target="#insertVerifier">Tambah</button>
+                <button class="btn btn-primary" style="padding-top:10px;padding-bottom:10px;" data-bs-toggle="modal" data-bs-target="#insertVerifier">Tambah</button>
             </div>
         </div>
         @include('mappingVerifier.modal.insert')
@@ -49,9 +49,9 @@
                                 <td>{{ $dt->NAME }}</td>
                                 <td>
                                     @if ($dt->STATUSENABLED == true)
-                                    <span class="badge bg-success">Aktif</span>
+                                    <span class="text-success">Aktif</span>
                                     @else
-                                    <span class="badge bg-danger">Non Aktif</span>
+                                    <span class="text-danger">Non Aktif</span>
                                     @endif
                                 </td>
                                 <td>{{ $dt->ROLE }}</td>

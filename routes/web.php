@@ -2,12 +2,17 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FuelmanController;
 use App\Http\Controllers\KKHController;
 use App\Http\Controllers\KLKHFuelStationController;
+use App\Http\Controllers\MappingSOPController;
 use App\Http\Controllers\MappingVerifierController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\VerifiedController;
+use App\Http\Controllers\SOPPlanningController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -45,6 +50,32 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/kkh/downloadPDF', [KKHController::class, 'downloadPDF'])->name('kkh.downloadPDF');
     Route::post('/kkh/verifikasi', [KKHController::class, 'verifikasi'])->name('kkh.verifikasi');
 
+    Route::get('/fuelman/dashboard', [FuelmanController::class, 'dashboard'])->name('fuelman.dashboard');
+
+    //SOP
+    Route::get('/files/sop/{name}', function ($name) {
+        $path = public_path('sop/' . $name);
+        abort_unless(File::exists($path), 404);
+        return Response::file($path, ['Content-Type' => 'application/pdf']);
+    })->where('name', '.*')->name('sop.show');
+
+    Route::prefix('/sop/planning')->name('sop.')->group(function () {
+        Route::get('/ringkasanSOP', [SOPPlanningController::class, 'ringkasanSOP'])->name('ringkasanSOP');
+        Route::get('/prosesPlanning', [SOPPlanningController::class, 'prosesPlanning'])->name('prosesPlanning');
+        Route::get('/surveyKepuasanPelangganEksternal', [SOPPlanningController::class, 'surveyKepuasanPelangganEksternal'])->name('surveyKepuasanPelangganEksternal');
+        Route::get('/keluhanPelanggan', [SOPPlanningController::class, 'keluhanPelanggan'])->name('keluhanPelanggan');
+        Route::get('/laporanOwningOperationCost', [SOPPlanningController::class, 'laporanOwningOperationCost'])->name('laporanOwningOperationCost');
+        Route::get('/pengelolaanSuratMasukDanKeluar', [SOPPlanningController::class, 'pengelolaanSuratMasukDanKeluar'])->name('pengelolaanSuratMasukDanKeluar');
+        Route::get('/pencatatanSystemFuelManagement', [SOPPlanningController::class, 'pencatatanSystemFuelManagement'])->name('pencatatanSystemFuelManagement');
+        Route::get('/laporanProduktivity', [SOPPlanningController::class, 'laporanProduktivity'])->name('laporanProduktivity');
+        Route::get('/laporanPencatatanHoursMeter', [SOPPlanningController::class, 'laporanPencatatanHoursMeter'])->name('laporanPencatatanHoursMeter');
+        Route::get('/penetapanBaselineEnergi', [SOPPlanningController::class, 'penetapanBaselineEnergi'])->name('penetapanBaselineEnergi');
+        Route::get('/pengelolaanFuel', [SOPPlanningController::class, 'pengelolaanFuel'])->name('pengelolaanFuel');
+        Route::get('/pengoperasianUnitFuelTruck', [SOPPlanningController::class, 'pengoperasianUnitFuelTruck'])->name('pengoperasianUnitFuelTruck');
+        Route::get('/pembuatanLaporanManagementProfitLo', [SOPPlanningController::class, 'pembuatanLaporanManagementProfitLo'])->name('pembuatanLaporanManagementProfitLo');
+        Route::get('/pembuatanLaporanBusinessPlan', [SOPPlanningController::class, 'pembuatanLaporanBusinessPlan'])->name('pembuatanLaporanBusinessPlan');
+    });
+
     //Users
     Route::get('/users', [UsersController::class, 'index'])->name('users.index');
     Route::post('/users/changeRole/{id}', [UsersController::class, 'changeRole'])->name('users.changeRole');
@@ -55,6 +86,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/mappingVerifier/update/{id}', [MappingVerifierController::class, 'update'])->name('mappingVerifier.update');
     Route::get('/mappingVerifier/statusEnabled/{id}', [MappingVerifierController::class, 'statusEnabled'])->name('mappingVerifier.statusEnabled');
 
-
+    Route::get('/mappingSOP', [MappingSOPController::class, 'index'])->name('mappingSOP.index');
+    Route::post('/mappingSOP/insert', [MappingSOPController::class, 'insert'])->name('mappingSOP.insert');
+    Route::get('/mappingSOP/statusEnabled/{id}', [MappingSOPController::class, 'statusEnabled'])->name('mappingSOP.statusEnabled');
 
 });
